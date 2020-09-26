@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "5118ab5d-1202-4172-a76a-41bd6e79720d",
+		"name": "Keycloak-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Code Grant Flow - 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/realms/mycompany/protocol/openid-connect/auth?client_id=mycompany-code-flow-client&response_type=code&scope=openid profile&redirect_uri=http://localhost:8082/some-url&state=qweasdqwe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"realms",
+						"mycompany",
+						"protocol",
+						"openid-connect",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "mycompany-code-flow-client"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "scope",
+							"value": "openid profile"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8082/some-url"
+						},
+						{
+							"key": "state",
+							"value": "qweasdqwe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Code Grant Flow - 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "mycompany-code-flow-client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "6700ca1b-9ddb-415c-b702-215cd1c1e053",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "6629ec4d-ace8-4a66-b29f-7a92927fa7a8.ca506fd4-d714-4501-a1fd-9b0b2a52b3da.0c0701b8-1795-4224-9437-7ed9beb8d486",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8082/some-url",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "profile",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/realms/mycompany/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"realms",
+						"mycompany",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
