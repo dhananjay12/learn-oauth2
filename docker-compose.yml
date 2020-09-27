@@ -1,14 +1,14 @@
 version: '3.7'
 
 volumes:
-  mysql_data1:
+  mysql_data:
       driver: local
 
 services:
   mariadb:
     image: mariadb
     volumes:
-      - mysql_data1:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: keycloak
@@ -21,6 +21,8 @@ services:
       test: ["CMD", "mysqladmin", "ping", "--silent"]
   keycloak:
     image: quay.io/keycloak/keycloak:latest
+    volumes:
+      - /tmp:/tmp
     environment:
       DB_VENDOR: mariadb
       DB_ADDR: mariadb

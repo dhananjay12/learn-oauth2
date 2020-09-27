@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "f9ee0875-c4fa-4cd8-9574-9b31a4527cee",
+		"name": "Keycloak-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Code Grant Flow - 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/auth/realms/mycompany/protocol/openid-connect/auth?client_id=mycompany-code-flow-client&response_type=code&scope=openid profile&redirect_uri=http://localhost:8082/some-url&state=qweasdqwe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"auth",
+						"realms",
+						"mycompany",
+						"protocol",
+						"openid-connect",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "mycompany-code-flow-client"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "scope",
+							"value": "openid profile"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8082/some-url"
+						},
+						{
+							"key": "state",
+							"value": "qweasdqwe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Code Grant Flow - 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "mycompany-code-flow-client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "6700ca1b-9ddb-415c-b702-215cd1c1e053",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "6629ec4d-ace8-4a66-b29f-7a92927fa7a8.ca506fd4-d714-4501-a1fd-9b0b2a52b3da.0c0701b8-1795-4224-9437-7ed9beb8d486",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8082/some-url",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "profile",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9090/auth/realms/mycompany/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"auth",
+						"realms",
+						"mycompany",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Simple Controller - check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJvczhadkI0NVNmUzJNaWVFbVU0X2Z6cDloODk1bkdDdDM3cVl2b0paNVBzIn0.eyJleHAiOjE2MDEyMDMyNTYsImlhdCI6MTYwMTIwMjk1NiwiYXV0aF90aW1lIjoxNjAxMjAwMDA0LCJqdGkiOiJjZDlkOTQzYy05Mjk5LTQ4ZTktYmVmNi1kYTViYjhjNmIxM2UiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvYXV0aC9yZWFsbXMvbXljb21wYW55IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjA0NDAzYmIwLTdiNDgtNDQ4ZS05Y2QwLTI3OWY5YTgyYzRmMCIsInR5cCI6IkJlYXJlciIsImF6cCI6Im15Y29tcGFueS1jb2RlLWZsb3ctY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjAxYjI0N2VlLTAwOWItNGNjYy04YTc1LWExNTY3YzcwYmMyNyIsImFjciI6IjAiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJKb2huIERvZSIsInByZWZlcnJlZF91c2VybmFtZSI6ImpvaG4iLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwiZW1haWwiOiJqb2huQG15Y29tcGFueS5jb20ifQ.UBjZ7_ALR2EuDx2w9YoVq1P8JCxPJJC-8BCW5G5iTtifaSDMCZn6AfvTIOxpyy6cEAs9FNIHut4ZJjrwOa-Vrll7QX0rBJZC0pBy5UPiKVuOeSxf0HbPA7C7LUU-e7rvuPuOb0_XWg3FvfF9QGMniq4e05pBZ92WwjyipET8diSFSHItvu83WIsXnRhxupN2UYPfRyxgZhVnO4vdiT8mq_XPkAbvpzmBLx9VSRVZnlo22fjQEY_AK7W7iv80F3kXwj9ZioSU1AN1TSdHsD2TnJYLOHxh4r_eIyqYqTHCR6iTVGQXp7jW2TBGepq8zPiJtHg8ARRnm7UVMvsuo0iFvA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/simple/check",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Simple Controller - jwt",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJvczhadkI0NVNmUzJNaWVFbVU0X2Z6cDloODk1bkdDdDM3cVl2b0paNVBzIn0.eyJleHAiOjE2MDEyMDMyNTYsImlhdCI6MTYwMTIwMjk1NiwiYXV0aF90aW1lIjoxNjAxMjAwMDA0LCJqdGkiOiJjZDlkOTQzYy05Mjk5LTQ4ZTktYmVmNi1kYTViYjhjNmIxM2UiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvYXV0aC9yZWFsbXMvbXljb21wYW55IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjA0NDAzYmIwLTdiNDgtNDQ4ZS05Y2QwLTI3OWY5YTgyYzRmMCIsInR5cCI6IkJlYXJlciIsImF6cCI6Im15Y29tcGFueS1jb2RlLWZsb3ctY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjAxYjI0N2VlLTAwOWItNGNjYy04YTc1LWExNTY3YzcwYmMyNyIsImFjciI6IjAiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJKb2huIERvZSIsInByZWZlcnJlZF91c2VybmFtZSI6ImpvaG4iLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwiZW1haWwiOiJqb2huQG15Y29tcGFueS5jb20ifQ.UBjZ7_ALR2EuDx2w9YoVq1P8JCxPJJC-8BCW5G5iTtifaSDMCZn6AfvTIOxpyy6cEAs9FNIHut4ZJjrwOa-Vrll7QX0rBJZC0pBy5UPiKVuOeSxf0HbPA7C7LUU-e7rvuPuOb0_XWg3FvfF9QGMniq4e05pBZ92WwjyipET8diSFSHItvu83WIsXnRhxupN2UYPfRyxgZhVnO4vdiT8mq_XPkAbvpzmBLx9VSRVZnlo22fjQEY_AK7W7iv80F3kXwj9ZioSU1AN1TSdHsD2TnJYLOHxh4r_eIyqYqTHCR6iTVGQXp7jW2TBGepq8zPiJtHg8ARRnm7UVMvsuo0iFvA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/simple/jwt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simple",
+						"jwt"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
