@@ -5,6 +5,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -12,14 +13,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
+        jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(new KeycloakRoleConverter());
+
         http.authorizeRequests()
             .antMatchers(HttpMethod.GET, "/scope/**")
             .hasAuthority("SCOPE_profile")
+            .antMatchers(HttpMethod.GET, "/role/**")
+            .hasRole("beta_user")
             .anyRequest()
             .authenticated()
             .and()
             .oauth2ResourceServer()
-            .jwt(); // apply jwt converter;
+            .jwt()
+            .jwtAuthenticationConverter(jwtAuthenticationConverter);
+        ;
 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
