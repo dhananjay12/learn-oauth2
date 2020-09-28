@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SimpleController {
 
     @GetMapping("/check")
-    public String status() {
+    public String check() {
         return "Working...";
     }
 
