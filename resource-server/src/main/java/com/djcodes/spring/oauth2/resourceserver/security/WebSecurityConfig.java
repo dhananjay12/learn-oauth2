@@ -1,4 +1,4 @@
-package com.djcodes.spring.resourceserver.security;
+package com.djcodes.spring.oauth2.resourceserver.security;
 
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;

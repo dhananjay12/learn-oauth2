@@ -14,6 +14,9 @@
 
 	<modules>
 		<module>resource-server</module>
+		<module>api-gateway</module>
+		<module>reactive-resource-server</module>
+		<module>eureka-server</module>
 	</modules>
     
 </project>

@@ -111,7 +111,7 @@
 			"response": []
 		},
 		{
-			"name": "Simple Controller - check",
+			"name": "Scope Controller - check",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -157,6 +157,138 @@
 					"path": [
 						"simple",
 						"jwt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Scope Controller - check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJvczhadkI0NVNmUzJNaWVFbVU0X2Z6cDloODk1bkdDdDM3cVl2b0paNVBzIn0.eyJleHAiOjE2MDEyMDMyNTYsImlhdCI6MTYwMTIwMjk1NiwiYXV0aF90aW1lIjoxNjAxMjAwMDA0LCJqdGkiOiJjZDlkOTQzYy05Mjk5LTQ4ZTktYmVmNi1kYTViYjhjNmIxM2UiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvYXV0aC9yZWFsbXMvbXljb21wYW55IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjA0NDAzYmIwLTdiNDgtNDQ4ZS05Y2QwLTI3OWY5YTgyYzRmMCIsInR5cCI6IkJlYXJlciIsImF6cCI6Im15Y29tcGFueS1jb2RlLWZsb3ctY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjAxYjI0N2VlLTAwOWItNGNjYy04YTc1LWExNTY3YzcwYmMyNyIsImFjciI6IjAiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJKb2huIERvZSIsInByZWZlcnJlZF91c2VybmFtZSI6ImpvaG4iLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwiZW1haWwiOiJqb2huQG15Y29tcGFueS5jb20ifQ.UBjZ7_ALR2EuDx2w9YoVq1P8JCxPJJC-8BCW5G5iTtifaSDMCZn6AfvTIOxpyy6cEAs9FNIHut4ZJjrwOa-Vrll7QX0rBJZC0pBy5UPiKVuOeSxf0HbPA7C7LUU-e7rvuPuOb0_XWg3FvfF9QGMniq4e05pBZ92WwjyipET8diSFSHItvu83WIsXnRhxupN2UYPfRyxgZhVnO4vdiT8mq_XPkAbvpzmBLx9VSRVZnlo22fjQEY_AK7W7iv80F3kXwj9ZioSU1AN1TSdHsD2TnJYLOHxh4r_eIyqYqTHCR6iTVGQXp7jW2TBGepq8zPiJtHg8ARRnm7UVMvsuo0iFvA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/scope/check",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"scope",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Role Controller - check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJvczhadkI0NVNmUzJNaWVFbVU0X2Z6cDloODk1bkdDdDM3cVl2b0paNVBzIn0.eyJleHAiOjE2MDEzMTkwNzAsImlhdCI6MTYwMTMxODc3MCwiYXV0aF90aW1lIjoxNjAxMzE4NzU2LCJqdGkiOiI5NzdmZDNlYi1hM2ZlLTQ1ZjgtYjk4ZC01YTcxNzJiZGNhNTQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvYXV0aC9yZWFsbXMvbXljb21wYW55IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjA0NDAzYmIwLTdiNDgtNDQ4ZS05Y2QwLTI3OWY5YTgyYzRmMCIsInR5cCI6IkJlYXJlciIsImF6cCI6Im15Y29tcGFueS1jb2RlLWZsb3ctY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjdmNWVmZGIwLTBlMzYtNGU0Yy1iYzIxLTg1N2VlNWI3OWE3ZiIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJKb2huIERvZSIsInByZWZlcnJlZF91c2VybmFtZSI6ImpvaG4iLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwiZW1haWwiOiJqb2huQG15Y29tcGFueS5jb20ifQ.e4gIdFxZ8U6KY7CGLvExguj-DBsJznMtP3gmKzPYJlu5sVOha4u6FEX5DFkbwTrUiwzJzgS91Sz-EkbSLkl5Pejm8AXiwPlOZhn6PFHZGaTS6kMJqxUcvSESAVnXOXOh3ighahjeDumKUCJCWFzXPuAak1he-xiubhSDRuVw6lmUhE5C0OhIq7XwGmnB49a2DisWtL0a5Xb2EEZ-nshtl55tFbHMQGrT91s04ZYRKyYyyrlBOkabE6LnxIQt9HX1Qq63RlhnBZ1ePceM32zKvOgP817qfT1g2kPrUgBZnHahnmIqvjjQq9II3gAFNAstCPAnPaLA2L_WZEHbM1zGXQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/role/check",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"role",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Method Lvl Security  Controller - secured",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJvczhadkI0NVNmUzJNaWVFbVU0X2Z6cDloODk1bkdDdDM3cVl2b0paNVBzIn0.eyJleHAiOjE2MDEzNjM2MDcsImlhdCI6MTYwMTM2MzMwNywiYXV0aF90aW1lIjoxNjAxMzYzMjk1LCJqdGkiOiJiMDMzZmM4Zi04MjAyLTQwYjYtYWM2OC1jMGYxMTNhZDZkYjQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvYXV0aC9yZWFsbXMvbXljb21wYW55IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjA0NDAzYmIwLTdiNDgtNDQ4ZS05Y2QwLTI3OWY5YTgyYzRmMCIsInR5cCI6IkJlYXJlciIsImF6cCI6Im15Y29tcGFueS1jb2RlLWZsb3ctY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6ImJmZTMzMTcwLTFlMjMtNDgzYy1hYjVlLTNiZDZkOGE4N2M1MiIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJKb2huIERvZSIsInByZWZlcnJlZF91c2VybmFtZSI6ImpvaG4iLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwiZW1haWwiOiJqb2huQG15Y29tcGFueS5jb20ifQ.MNge01jSSqbR_NAj8PrI1DKERwx1x56zBMaff5GUK5YSh_JO8X8ASTgGEecB5H0vmXg-axCpLUqMgz9n3bnm4cdgqjalNNSRi5xzLp-qcgNbw1G53lY1U3p1TmOQM03tTzOwsrZowrBcVDrV8Of63d5fgMQlyjVuTsfstzjB_1C7Zwu2b1SJGcAsf-nBLMrbjy9Y6Mrs0Qd9qBZ48litUzJrCOIFOdzt8V4VRb5zvX3Q4G4olFMdNUbvkvTRSeJb4KrQQ_Ki6o1rc7hoAtXK5rlX0wMTqzV0ZWombDgo-Kwe8BbD-6v0nSple5ZtIuxCK3w8Wl_1-s0QG8NV4MfTiQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/method/secured",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"method",
+						"secured"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Method Lvl Security  Controller - preAuthorize",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJvczhadkI0NVNmUzJNaWVFbVU0X2Z6cDloODk1bkdDdDM3cVl2b0paNVBzIn0.eyJleHAiOjE2MDEzNjM2MDcsImlhdCI6MTYwMTM2MzMwNywiYXV0aF90aW1lIjoxNjAxMzYzMjk1LCJqdGkiOiJiMDMzZmM4Zi04MjAyLTQwYjYtYWM2OC1jMGYxMTNhZDZkYjQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvYXV0aC9yZWFsbXMvbXljb21wYW55IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjA0NDAzYmIwLTdiNDgtNDQ4ZS05Y2QwLTI3OWY5YTgyYzRmMCIsInR5cCI6IkJlYXJlciIsImF6cCI6Im15Y29tcGFueS1jb2RlLWZsb3ctY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6ImJmZTMzMTcwLTFlMjMtNDgzYy1hYjVlLTNiZDZkOGE4N2M1MiIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJKb2huIERvZSIsInByZWZlcnJlZF91c2VybmFtZSI6ImpvaG4iLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwiZW1haWwiOiJqb2huQG15Y29tcGFueS5jb20ifQ.MNge01jSSqbR_NAj8PrI1DKERwx1x56zBMaff5GUK5YSh_JO8X8ASTgGEecB5H0vmXg-axCpLUqMgz9n3bnm4cdgqjalNNSRi5xzLp-qcgNbw1G53lY1U3p1TmOQM03tTzOwsrZowrBcVDrV8Of63d5fgMQlyjVuTsfstzjB_1C7Zwu2b1SJGcAsf-nBLMrbjy9Y6Mrs0Qd9qBZ48litUzJrCOIFOdzt8V4VRb5zvX3Q4G4olFMdNUbvkvTRSeJb4KrQQ_Ki6o1rc7hoAtXK5rlX0wMTqzV0ZWombDgo-Kwe8BbD-6v0nSple5ZtIuxCK3w8Wl_1-s0QG8NV4MfTiQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/method/pre-authorize/asdasd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"method",
+						"pre-authorize",
+						"asdasd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Method Lvl Security  Controller - postAuthorize",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJvczhadkI0NVNmUzJNaWVFbVU0X2Z6cDloODk1bkdDdDM3cVl2b0paNVBzIn0.eyJleHAiOjE2MDEzNjM2MDcsImlhdCI6MTYwMTM2MzMwNywiYXV0aF90aW1lIjoxNjAxMzYzMjk1LCJqdGkiOiJiMDMzZmM4Zi04MjAyLTQwYjYtYWM2OC1jMGYxMTNhZDZkYjQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvYXV0aC9yZWFsbXMvbXljb21wYW55IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjA0NDAzYmIwLTdiNDgtNDQ4ZS05Y2QwLTI3OWY5YTgyYzRmMCIsInR5cCI6IkJlYXJlciIsImF6cCI6Im15Y29tcGFueS1jb2RlLWZsb3ctY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6ImJmZTMzMTcwLTFlMjMtNDgzYy1hYjVlLTNiZDZkOGE4N2M1MiIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJKb2huIERvZSIsInByZWZlcnJlZF91c2VybmFtZSI6ImpvaG4iLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwiZW1haWwiOiJqb2huQG15Y29tcGFueS5jb20ifQ.MNge01jSSqbR_NAj8PrI1DKERwx1x56zBMaff5GUK5YSh_JO8X8ASTgGEecB5H0vmXg-axCpLUqMgz9n3bnm4cdgqjalNNSRi5xzLp-qcgNbw1G53lY1U3p1TmOQM03tTzOwsrZowrBcVDrV8Of63d5fgMQlyjVuTsfstzjB_1C7Zwu2b1SJGcAsf-nBLMrbjy9Y6Mrs0Qd9qBZ48litUzJrCOIFOdzt8V4VRb5zvX3Q4G4olFMdNUbvkvTRSeJb4KrQQ_Ki6o1rc7hoAtXK5rlX0wMTqzV0ZWombDgo-Kwe8BbD-6v0nSple5ZtIuxCK3w8Wl_1-s0QG8NV4MfTiQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/method/post-authorize/asdasd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"method",
+						"post-authorize",
+						"asdasd"
 					]
 				}
 			},

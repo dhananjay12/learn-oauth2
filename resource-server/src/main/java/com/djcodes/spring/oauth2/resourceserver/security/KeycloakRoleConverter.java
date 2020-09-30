@@ -1,4 +1,4 @@
-package com.djcodes.spring.resourceserver.security;
+package com.djcodes.spring.oauth2.resourceserver.security;
 
 
 import java.util.ArrayList;

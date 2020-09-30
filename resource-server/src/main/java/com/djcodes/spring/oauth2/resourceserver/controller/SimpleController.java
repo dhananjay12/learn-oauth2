@@ -1,4 +1,4 @@
-package com.djcodes.spring.resourceserver.controller;
+package com.djcodes.spring.oauth2.resourceserver.controller;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;

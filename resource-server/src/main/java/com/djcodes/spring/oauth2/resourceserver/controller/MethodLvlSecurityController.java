@@ -1,6 +1,5 @@
-package com.djcodes.spring.resourceserver.controller;
+package com.djcodes.spring.oauth2.resourceserver.controller;
 
-import java.util.Map;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
