@@ -16,17 +16,17 @@ jobs:
     strategy:
       matrix:
         # test against latest update of each major Java version, as well as specific updates of LTS versions:
-        java: [11.0.x]
+        java: 11.0.x
     # This will loop based on above values
-    name: Java ${{ matrix.java }} check
+    name: Verify and Build Images
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup java ${{ matrix.java }}
+      - name: Setup java 11.0.x
         uses: actions/setup-java@v1
         with:
-          java-version: ${{ matrix.java }}
+          java-version: 11.0.x
 
       - run: mvn -B verify
 
