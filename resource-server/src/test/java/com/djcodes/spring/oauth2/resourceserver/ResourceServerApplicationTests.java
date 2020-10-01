@@ -3,10 +3,10 @@ package com.djcodes.spring.oauth2.resourceserver;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class ResourceServerApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 

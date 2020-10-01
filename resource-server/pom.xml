@@ -82,23 +82,22 @@
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
-        <version>2.1.0</version>
+        <version>2.5.2</version>
         <configuration>
           <from>
-            <image>openjdk:11-jdk-slim</image>
+            <image>openjdk:11.0.5-jre</image>
           </from>
           <to>
-            <image>username/appname</image>
+            <image>dhananjay12/oauth2-${project.artifactId}</image>
             <tags>
               <tag>latest</tag>
               <tag>${project.version}</tag>
             </tags>
           </to>
           <container>
-            <mainClass>demo.Application</mainClass>
+            <mainClass>com.djcodes.spring.oauth2.resourceserver.ResourceServerApplication</mainClass>
             <ports>
               <port>8080</port>
-              <port>8787</port>
             </ports>
           </container>
         </configuration>

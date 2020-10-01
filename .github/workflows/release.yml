@@ -22,47 +22,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Setup java ${{ matrix.java }}
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
+
       - run: mvn -B verify
-
-  docker:
-
-    needs: test # Dont run before test job is successful. Note each job runs in a fresh instance of a virtual environment. So there is no sharing
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Build
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11.0.x
-      - run: mvn clean install -Dmaven.test.skip=true -DskipITs -DskipTests
-
-      - name: Prepare variables
-        id: vars
-        run: |
-          DOCKER_IMAGE=dhananjay12/demo-app
-          DOCKER_TAG=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)
-          echo ::set-output name=image::${DOCKER_IMAGE}
-          echo ::set-output name=tag::${DOCKER_TAG}
 
       - name: Login to DockerHub
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
-      - name: Build and tag Docker image
-        run: docker build . --file Dockerfile --tag ${{steps.vars.outputs.image}}:${{steps.vars.outputs.tag}}
-
-      - name: Push the tagged Docker image
-        run: docker push ${{steps.vars.outputs.image}}:${{steps.vars.outputs.tag}}
-
-      - name: Retag the image to latest
-        if: ${{ github.ref == 'refs/heads/master'}}
-        run: docker tag ${{steps.vars.outputs.image}}:${{steps.vars.outputs.tag}} ${{steps.vars.outputs.image}}:latest
-
-      - name: Retag the image to latest
-        if: ${{ github.ref == 'refs/heads/master'}}
-        run: docker push ${{steps.vars.outputs.image}}:latest
+      - name: Build and push images
+        run: mvn jib:build
