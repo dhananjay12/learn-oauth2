@@ -23,6 +23,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .hasAuthority("SCOPE_profile")
             .antMatchers(HttpMethod.GET, "/role/**")
             .hasRole("beta_user")
+            .antMatchers("/actuator/**")
+            .permitAll()
             .anyRequest()
             .authenticated()
             .and()
