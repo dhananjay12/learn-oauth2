@@ -4,6 +4,11 @@ volumes:
   mysql_data:
       driver: local
 
+x-common-variables: &common-variables
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://registry:8080/eureka
+  spring.security.oauth2.resourceserver.jwt.issuer-uri: http://keycloak:8080/auth/realms/mycompany
+  SPRING_MAIN_BANNER-MODE: 'off'
+
 services:
   mariadb:
     image: mariadb
@@ -35,3 +40,32 @@ services:
       - "9090:8080"
     depends_on:
       - mariadb
+
+  registry:
+    image: dhananjay12/oauth2-eureka-server:latest
+    ports:
+      - "8761:8080"
+  resource-server:
+    image: dhananjay12/oauth2-resource-server:latest
+    ports:
+      - "7779:8080"
+    environment:
+      <<: *common-variables
+    links:
+      - registry
+  reactive-resource-server:
+    image: dhananjay12/oauth2-reactive-resource-server:latest
+    ports:
+      - "7778:8080"
+    environment:
+      <<: *common-variables
+    links:
+      - registry
+  api-gateway:
+    image: dhananjay12/oauth2-api-gateway:latest
+    ports:
+      - "7777:8080"
+    environment:
+      <<: *common-variables
+    links:
+      - registry
