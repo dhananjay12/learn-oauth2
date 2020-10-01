@@ -5,7 +5,8 @@ volumes:
       driver: local
 
 x-common-variables: &common-variables
-  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://registry:8080/eureka
+  eureka.client.serviceUrl.defaultZone: http://registry:8080/eureka
+  eureka.instance.non-secure-port: 8080
   spring.security.oauth2.resourceserver.jwt.issuer-uri: http://keycloak:8080/auth/realms/mycompany
   SPRING_MAIN_BANNER-MODE: 'off'
 
@@ -43,6 +44,8 @@ services:
 
   registry:
     image: dhananjay12/oauth2-eureka-server:latest
+    environment:
+      <<: *common-variables
     ports:
       - "8761:8080"
   resource-server:
@@ -53,6 +56,7 @@ services:
       <<: *common-variables
     links:
       - registry
+      - keycloak
   reactive-resource-server:
     image: dhananjay12/oauth2-reactive-resource-server:latest
     ports:
@@ -61,6 +65,7 @@ services:
       <<: *common-variables
     links:
       - registry
+      - keycloak
   api-gateway:
     image: dhananjay12/oauth2-api-gateway:latest
     ports:
@@ -69,3 +74,4 @@ services:
       <<: *common-variables
     links:
       - registry
+      - keycloak
